@@ -1,0 +1,88 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Join Upbringing
+{% endblock %}
+
+{% block content %}
+
+
+<section class="auth-layout">
+
+    
+    <div class="auth-art">
+
+        <img
+            src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=1000"
+            alt="Mother and baby"
+        >
+
+        <div>
+            <span class="eyebrow">A safe place to start</span>
+            <h2>There's room for you here.</h2>
+        </div>
+
+    </div>
+
+    
+    <div class="auth-panel">
+
+        <span class="eyebrow">Create your account</span>
+
+        <h1>
+            Join <em>Upbringing.</em>
+        </h1>
+
+        <p>Choose the account type that fits you.</p>
+
+      
+        <form method="post" class="form-stack">
+
+            {% csrf_token %}
+
+           
+            {{ form.non_field_errors }}
+
+          
+            {% for field in form %}
+
+                <label>
+                    {{ field.label }}
+
+                    {{ field }}
+
+                   
+                    {% if field.help_text %}
+                        <small>{{ field.help_text }}</small>
+                    {% endif %}
+
+                  
+                    {{ field.errors }}
+                </label>
+
+            {% endfor %}
+
+         
+            <button class="btn btn-dark full" type="submit">
+                Create account →
+            </button>
+
+        </form>
+
+       
+        <p class="form-foot">
+            Already have an account?
+            <a href="{% url 'login' %}">Log in</a>
+        </p>
+
+       
+        <small>
+            Doctor accounts require admin verification before
+            patient chat is enabled.
+        </small>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Mother & Baby Shop — Upbringing
+{% endblock %}
+
+
+{% block content %}
+
+    
+    <section class="page-hero shop-hero">
+
+        <span class="eyebrow">
+            The Little Essentials Shop
+        </span>
+
+        <h1>
+            Thoughtful picks for
+            <br>
+            <em>motherhood & baby.</em>
+        </h1>
+
+        <p>
+            A starter catalogue of maternity and newborn essentials.
+            Demo only — checkout and payment are not enabled.
+        </p>
+
+    </section>
+
+
+    
+    <form class="filter-row" method="get">
+
+        <label for="category">
+            Browse by category
+        </label>
+
+        <select
+            id="category"
+            name="category"
+            onchange="this.form.submit()"
+        >
+
+            <option value="">
+                All items
+            </option>
+
+            {% for cat in categories %}
+
+                <option
+                    value="{{ cat }}"
+                    {% if selected == cat %}
+                        selected
+                    {% endif %}
+                >
+                    {{ cat }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+    </form>
+
+
+    
+    <section class="product-grid shop-products">
+
+        {% for product in products %}
+
+           
+            <article class="product-card reveal">
+
+                <img
+                    src="{{ product.image_url }}"
+                    alt="{{ product.name }}"
+                    loading="lazy"
+                >
+
+                <div class="product-info">
+
+                    <span class="eyebrow">
+                        {{ product.category }}
+                    </span>
+
+                    <h3>
+                        {{ product.name }}
+                    </h3>
+
+                    <p>
+                        {{ product.description }}
+                    </p>
+
+                    
+                    <div class="price-row">
+
+                        <strong>
+                            ₹{{ product.price }}
+                        </strong>
+
+                        <span class="stock">
+                            Available
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        {% empty %}
+
+            <p>
+                No products in this category yet.
+                Run
+                <code>py manage.py seed_products</code>
+                to add demo products.
+            </p>
+
+        {% endfor %}
+
+    </section>
+
+{% endblock %}

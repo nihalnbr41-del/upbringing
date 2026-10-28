@@ -1,0 +1,124 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Your dashboard — Upbringing
+{% endblock %}
+
+{% block content %}
+
+
+<section class="dashboard-head">
+
+    <span class="eyebrow">Your private space</span>
+
+    <h1>
+        Hello, {{ user.username }} <em>♡</em>
+    </h1>
+
+    <p>
+        You're doing something good by showing up for yourself.
+    </p>
+
+</section>
+
+
+<section class="dashboard-grid">
+
+  
+    <article class="dash-card dash-wide">
+
+        <span class="eyebrow">Free supportive chat</span>
+
+        <h2>Talk to someone who can listen.</h2>
+
+        <p>
+            Chat with a verified doctor/support professional.
+            Chat is text-based in this demo.
+        </p>
+
+       
+        {% if doctors %}
+
+            <div class="doctor-list">
+
+                {% for item in doctors %}
+
+                    <div class="doctor-item">
+
+                      
+                        <div class="avatar">
+                            {{ item.user.username|first|upper }}
+                        </div>
+
+                     
+                        <div>
+                            <strong>
+                                {{ item.user.get_full_name|default:item.user.username }}
+                            </strong>
+
+                            <small>
+                                {{ item.qualification|default:"Verified support professional" }}
+                            </small>
+                        </div>
+
+                      
+                        <a
+                            class="btn btn-dark btn-small"
+                            href="{% url 'chat' %}?doctor={{ item.id }}"
+                        >
+                            Chat free →
+                        </a>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+           
+            <p class="empty-note">
+                No verified doctors are available yet.
+                The admin must verify doctor profiles first.
+            </p>
+
+        {% endif %}
+
+    </article>
+
+   
+    <article class="dash-card">
+
+        <span class="card-symbol">✿</span>
+
+        <h3>Little essentials</h3>
+
+        <p>Browse maternity and newborn items.</p>
+
+        <a class="text-link" href="{% url 'shop' %}">
+            Visit the shop →
+        </a>
+
+    </article>
+
+    
+    <article class="dash-card">
+
+        <span class="card-symbol">☁</span>
+
+        <h3>Gentle guidance</h3>
+
+        <p>
+            Short, general wellbeing resources for busy days.
+        </p>
+
+        <a class="text-link" href="{% url 'resources' %}">
+            Read resources →
+        </a>
+
+    </article>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Support Chat — Upbringing
+{% endblock %}
+
+
+{% block content %}
+
+    
+    <section class="chat-layout">
+
+
+        
+        <div class="chat-top">
+
+            <a
+                href="{% url 'dashboard' %}"
+                class="text-link"
+            >
+                ← Dashboard
+            </a>
+
+            <span class="online-dot"></span>
+
+            <div>
+
+                <strong>
+                    Support conversation
+                </strong>
+
+                <small>
+
+                    {% if is_doctor %}
+
+                        Patient: {{ patient.username }}
+
+                    {% else %}
+
+                        Doctor: {{ doctor.username }}
+
+                    {% endif %}
+
+                </small>
+
+            </div>
+
+            <span class="free-pill">
+                FREE CHAT
+            </span>
+
+        </div>
+
+
+        
+        <div class="chat-notice">
+
+            This demo chat is not monitored continuously and is not
+            an emergency service. Avoid sharing highly sensitive
+            personal details.
+
+        </div>
+
+
+        
+        <div class="chat-messages">
+
+            {% for item in messages_list %}
+
+                <div
+                    class="message
+                    {% if item.sender_id == user.id %}
+                        mine
+                    {% else %}
+                        theirs
+                    {% endif %}"
+                >
+
+                    <small>
+                        {{ item.sender.username }}
+                        ·
+                        {{ item.created_at|date:"M j, H:i" }}
+                    </small>
+
+                    <p>
+                        {{ item.body|linebreaksbr }}
+                    </p>
+
+                </div>
+
+            {% empty %}
+
+                
+                <div class="empty-chat">
+
+                    <span>♡</span>
+
+                    <h3>
+                        A conversation starts here.
+                    </h3>
+
+                    <p>
+                        Say hello, or share what kind of support
+                        would feel helpful today.
+                    </p>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        
+        <form
+            method="post"
+            class="chat-compose"
+        >
+
+            {% csrf_token %}
+
+            {{ form.body }}
+
+            <button
+                class="btn btn-dark"
+                type="submit"
+            >
+                Send ↑
+            </button>
+
+        </form>
+
+    </section>
+
+
+    
+    <script>
+
+        const box = document.querySelector('.chat-messages');
+
+        if (box) {
+            box.scrollTop = box.scrollHeight;
+        }
+
+    </script>
+
+{% endblock %}

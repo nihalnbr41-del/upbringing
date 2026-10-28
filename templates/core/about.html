@@ -1,0 +1,141 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Our Story — Upbringing
+{% endblock %}
+
+
+{% block content %}
+
+   
+    <section class="page-hero">
+
+        <span class="eyebrow">
+            Our Story
+        </span>
+
+        <h1>
+            Care for the person
+            <br>
+            <em>behind the parent.</em>
+        </h1>
+
+        <p>
+            Upbringing is imagined as a gentle, easy-to-use space
+            for mothers navigating pregnancy, birth, and early parenthood.
+        </p>
+
+    </section>
+
+
+    
+    <section class="split-section">
+
+        <img
+            class="rounded-photo"
+            src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1200"
+            alt="Family spending time together"
+        >
+
+        <div>
+
+            <span class="eyebrow">
+                Why We Exist
+            </span>
+
+            <h2>
+                Because support should feel
+                <em>within reach.</em>
+            </h2>
+
+            <p>
+                New motherhood can bring joy, uncertainty, exhaustion,
+                and big changes. We want to make it easier to find
+                reliable information, supportive conversation,
+                and practical essentials.
+            </p>
+
+            <p>
+                Our goal is to build a kind and inclusive experience,
+                with clear boundaries between peer support,
+                professional care, and urgent mental-health help.
+            </p>
+
+            <a
+                class="btn btn-dark"
+                href="{% url 'resources' %}"
+            >
+                Explore resources →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                Our Principles
+            </span>
+
+            <h2>
+                Built around
+                <em>you.</em>
+            </h2>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            
+            <article class="feature-card peach">
+
+                <h3>
+                    Kindness First
+                </h3>
+
+                <p>
+                    No judgement, no pressure, and no expectation
+                    that you have it all together.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card lilac">
+
+                <h3>
+                    Safety Matters
+                </h3>
+
+                <p>
+                    Doctor profiles should be verified before
+                    they can chat with patients.
+                </p>
+
+            </article>
+
+
+            
+            <article class="feature-card sage">
+
+                <h3>
+                    Easy Access
+                </h3>
+
+                <p>
+                    Simple navigation and readable pages
+                    designed for busy days.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+{% endblock %}

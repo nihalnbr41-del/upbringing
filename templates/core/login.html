@@ -1,0 +1,79 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Log in — Upbringing
+{% endblock %}
+
+{% block content %}
+
+<section class="auth-layout">
+
+    
+    <div class="auth-art">
+        <img
+            src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=1000"
+            alt="Family together"
+        >
+
+        <div>
+            <span class="eyebrow">Welcome back</span>
+            <h2>Take it one day at a time.</h2>
+        </div>
+    </div>
+
+    
+    <div class="auth-panel">
+
+        <span class="eyebrow">Your space is waiting</span>
+
+        <h1>
+            Welcome <em>back.</em>
+        </h1>
+
+        <p>Log in to continue to your dashboard.</p>
+
+       
+        <form method="post" class="form-stack">
+
+            {% csrf_token %}
+
+           
+            <label>
+                Username
+                <input
+                    type="text"
+                    name="username"
+                    required
+                    autocomplete="username"
+                >
+            </label>
+
+            
+            <label>
+                Password
+                <input
+                    type="password"
+                    name="password"
+                    required
+                    autocomplete="current-password"
+                >
+            </label>
+
+         
+            <button class="btn btn-dark full" type="submit">
+                Log in →
+            </button>
+
+        </form>
+
+      
+        <p class="form-foot">
+            New to Upbringing?
+            <a href="{% url 'register' %}">Create an account</a>
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

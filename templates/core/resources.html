@@ -1,0 +1,116 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Resources — Upbringing
+{% endblock %}
+
+{% block content %}
+
+
+<section class="page-hero">
+
+    <span class="eyebrow">The gentle guide</span>
+
+    <h1>
+        Helpful reads for<br>
+        <em>the days that feel big.</em>
+    </h1>
+
+    <p>
+        Start with one small thing. These general tips are educational,
+        not a diagnosis or a substitute for professional care.
+    </p>
+
+</section>
+
+
+<section class="resource-grid">
+
+   
+    <article class="resource-card reveal">
+
+        <img
+            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900"
+            alt="Quiet mindful moment"
+        >
+
+        <div>
+            <span class="eyebrow">02 minute read</span>
+
+            <h3>Make space for your feelings</h3>
+
+            <p>
+                Try naming what you're feeling without judging it.
+                Rest, connection, and asking for help are valid needs.
+            </p>
+        </div>
+
+    </article>
+
+    
+    <article class="resource-card reveal">
+
+        <img
+            src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=900"
+            alt="Family supporting one another"
+        >
+
+        <div>
+            <span class="eyebrow">Connection</span>
+
+            <h3>Build your support circle</h3>
+
+            <p>
+                Tell a trusted person one specific way they can help:
+                a meal, a short visit, or listening without advice.
+            </p>
+        </div>
+
+    </article>
+
+   
+    <article class="resource-card reveal">
+
+        <img
+            src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=900"
+            alt="Sunrise in nature"
+        >
+
+        <div>
+            <span class="eyebrow">Gentle practice</span>
+
+            <h3>Take a mindful pause</h3>
+
+            <p>
+                If comfortable, relax your shoulders and take a few
+                slow breaths. Stop if it feels uncomfortable.
+            </p>
+        </div>
+
+    </article>
+
+</section>
+
+
+<section class="help-callout">
+
+    <h2>Need more than a read?</h2>
+
+    <p>
+        Connect with an approved doctor through the free text-chat demo.
+    </p>
+
+    <a class="btn btn-dark" href="{% url 'register' %}">
+        Find support ↗
+    </a>
+
+    
+    <p class="disclaimer">
+        If you may harm yourself or someone else, or are in immediate
+        danger, contact local emergency services or a crisis service
+        in your area now.
+    </p>
+
+</section>
+
+{% endblock %}
